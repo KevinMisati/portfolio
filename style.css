@@ -109,23 +109,33 @@ h3{font-size: var(--fs-h3);}
     width: 150px;
     height: 2px;
     margin: 0 auto 1.5rem auto ;
-    background: var(--clr-dark);
+    background: var(--clr-light);
     
 }
 /* =======================end of global variables================ */
 
 /* ========================header section========================== */
+main{
+    position: relative;
+}
 .header{
-    width: 100vw;
-    height: 90px;
+    width: 95vw;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position:fixed;
+    background-color: transparent;
+  /*  box-shadow: 0 4px 2px -2px gray; */
+   z-index: 100;
+    /* border-bottom:1px solid var(--clr-light) ; */
+    opacity: 1;
 }
 
 header{
     display:flex ;
     height: 100%;
+    
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -150,7 +160,7 @@ nav{
     position: fixed;
     width: 100%;
     height: 100vh;
-    color: var(--clr-light);
+    color: var(--clr-dark);
     top:0;
     bottom:0;
     right: 0;
@@ -161,13 +171,15 @@ nav{
     margin: 0;
     padding: 0;
     transition: clip-path 1s ease-in-out  ;
+    background: var(--clr-red);
+    /* transition: var(--transition); */
 }
 
 .nav_list{
     list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     height: 100%;
     align-items: center;
 }
@@ -176,6 +188,7 @@ nav{
     font-weight: var(--fw-bold);
     text-decoration: none;
     text-transform: capitalize;
+    font-size: 1.5rem;
 }
 
 .nav_link:hover{
@@ -190,14 +203,15 @@ nav{
 
 
 .humburger,.humburger::after,.humburger::before{
-    width: 2.5rem;
+    width: 2.2rem;
     height: 3.5px;
     background: var(--clr-accent);
     transition: var(--transition);
-    /*  animation-name:humburger ;
-    animation-duration: 1.5s;
+    transition-duration: 1s;
+    animation-name:humburger ;
+    animation-duration: 2.5s;
     animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite; */
+    animation-iteration-count: infinite; 
 }
 
 .humburger::after,.humburger::before{
@@ -213,7 +227,7 @@ nav{
         transform: scale(1);
     }
     50%{
-        transform: scale(1.25);
+        transform: scale(1.1);
     }
     100%{
         transform: scale(1);
@@ -242,12 +256,20 @@ nav{
   display: block;
   clip-path: circle(100% at 50% 50%); 
   z-index: 100;
+  /* background: #16e0de; */
 }
 
 .nav_open,.nav_toggle{
     position: fixed;
     outline: none;
 }
+.nav_open .humburger,
+.nav_open .humburger::after,
+.nav_open .humburger::before {
+    animation:none;
+    transition: var(--transition);
+  
+ }
 
 .nav_open .humburger{
     transform: rotate(135deg);
@@ -266,6 +288,9 @@ button.nav_toggle{
     outline: none;
 }
 
+
+
+
 @media (min-width:900px){
 
 
@@ -277,6 +302,8 @@ button.nav_toggle{
     clip-path: none;
     width:auto;
     z-index: 100;
+    background:transparent;
+    color:var(--clr-light);
     }
     .nav_list{
         
@@ -309,7 +336,7 @@ button.nav_toggle{
 
 /*========================intro section, hi i am kevin misati============== */
 .intro-container{
-    height: calc(100vh - 90px);
+    height: calc(100vh);
     width: 100vw;
     display: flex;
     align-items: center;
@@ -349,7 +376,7 @@ button.nav_toggle{
 }
 
 .intro p{
-    text-align:left ;
+    text-align:left;
 }
 .intro_img{
     height: 200px;
@@ -369,7 +396,7 @@ button.nav_toggle{
 
 @media screen and (min-width:600px){
     .intro-container{
-    height: calc(100vh - 80px);
+    height: 100vh;
     width: 100vw;
     display: grid;
     align-items: center;
@@ -438,14 +465,6 @@ section.my_services{
     text-align: center;
     margin-bottom: 4em;
 
-}
-
-/* .services{
-    margin-bottom: 4em;
-} */
-
-.my_services .underline{
-    background: var(--clr-light);
 }
 
 
@@ -577,6 +596,18 @@ section.about_me{
     }
     }
 
+    /* =====================skills====================== */
+    .my_skills{
+        width:100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .myskills li {
+
+    }
+    /* ======================end of skills======================== */
+
 /*==============My Projects==================*/
 
 .my_work{
@@ -689,11 +720,6 @@ footer{
 footer .contact-title{
 margin: 0 auto .8rem auto;   
 }
-footer .underline{
-    background: var(--clr-light);
-}
-
-
 footer a{
     color: inherit;
     text-decoration: none;
