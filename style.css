@@ -159,6 +159,7 @@ header{
     display: flex;
     align-items: center;
     justify-items: center;
+    z-index: 100;
 }
 .logo h3{
     cursor: pointer;
@@ -171,7 +172,7 @@ header{
 
 
 nav{
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100vh;
     color: var(--clr-dark);
@@ -519,6 +520,7 @@ section.my_services{
     border: .1px solid var(--clr-red);
     text-align:left;
     cursor: pointer;
+    outline: none;
 }
 .btn:hover{
     color: var(--clr-light);
